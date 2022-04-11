@@ -73,22 +73,32 @@ class LinkedList {
     }
 
     const newNode = new NOde(value);
-    const leader = this.traverseToINdex(index-1);
-     let holdingPointer = leader.next;
-     leader.next = newNode;
-     newNode.next =holdingPointer;
-     this.length++;
+    const leader = this.traverseToINdex(index - 1);
+    let holdingPointer = leader.next;
+    leader.next = newNode;
+    newNode.next = holdingPointer;
+    this.length++;
   }
 
+  delete(index) {
+    if (index >= this.length) {
+      return;
+    }
+    const leader = this.traverseToINdex(index - 1);
+
+    const unwantedNode = leader.next;
+
+    leader.next = unwantedNode.next;
+    this.length--;
+  }
   traverseToINdex(index) {
     let counter = 0;
     let currentNode = this.head;
     while (counter !== index) {
       currentNode = currentNode.next;
-      counter++
+      counter++;
     }
     return currentNode;
-
   }
 }
 
