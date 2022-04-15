@@ -24,11 +24,12 @@ class NOde {
   }
 }
 
-class LinkedList {
+class DoublyLinkedList {
   constructor(value) {
     this.head = {
       value: value,
       next: null,
+      prev: null,
     };
 
     this.tail = this.head;
@@ -38,6 +39,7 @@ class LinkedList {
   append(value) {
     const newNode = new NOde(value);
 
+    newNode.prev = this.tail;
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
@@ -47,7 +49,9 @@ class LinkedList {
 
   prepend(value) {
     const newNode = new NOde(value);
+
     newNode.next = this.head;
+    this.head.prev = newNode;
     this.head = newNode;
     this.length++;
     return this;
@@ -71,12 +75,12 @@ class LinkedList {
     }
 
     const newNode = new NOde(value);
-    let leader = this.traverseToINdex(index - 1);
-    let holdingPointer = leader.next;
+    const leader = this.traverseToINdex(index - 1);
+    const follower = leader.next;
 
+    let holdingPointer = leader.next;
     leader.next = newNode;
     newNode.next = holdingPointer;
-
     this.length++;
   }
 
@@ -84,13 +88,11 @@ class LinkedList {
     if (index >= this.length) {
       return;
     }
+    const leader = this.traverseToINdex(index - 1);
 
-    let leader = this.traverseToINdex(index - 1);
+    const unwantedNode = leader.next;
 
-    let holdingPointer = leader.next;
-
-    leader.next = holdingPointer.next;
-
+    leader.next = unwantedNode.next;
     this.length--;
   }
   traverseToINdex(index) {
@@ -101,22 +103,6 @@ class LinkedList {
       counter++;
     }
     return currentNode;
-  }
-  // [1,2,3,4,5,6,7,8,9,10]
-  reverse() {
-    if (this.length === 0) return;
-
-    let first = this.head;
-    this.tail = first;
-    let second = first.next;
-    while (second) {
-      let temp = second.next;
-      second.next = first;
-      first = second;
-      second = temp;
-    }
-    this.head.next = null;
-    this.head = first;
   }
 }
 
@@ -129,5 +115,3 @@ myLinkedList.insert(33, 44);
 myLinkedList.delete(1);
 
 myLinkedList.printList();
-myLinkedList.reverse();
-// myLinkedList.printList();

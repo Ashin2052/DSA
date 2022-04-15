@@ -1,0 +1,60 @@
+NOde {
+  value: 1,
+  next: NOde { value: 5, next: NOde { value: 16, next: [NOde] } } } 'first'
+NOde {
+  value: 1,
+  next: NOde { value: 5, next: NOde { value: 16, next: [NOde] } } } 'second'
+NOde {
+  value: 16,
+  next: NOde { value: 99, next: NOde { value: 44, next: null } } } 'temp'
+NOde { value: 5, next: NOde { value: 1, next: [Circular] } } 'first'
+NOde {
+  value: 16,
+  next: NOde { value: 99, next: NOde { value: 44, next: null } } } 'second'
+NOde { value: 99, next: NOde { value: 44, next: null } } 'temp'
+NOde {
+  value: 16,
+  next: NOde { value: 5, next: NOde { value: 1, next: [Circular] } } } 'first'
+NOde { value: 99, next: NOde { value: 44, next: null } } 'second'
+NOde { value: 44, next: null } 'temp'
+NOde {
+  value: 99,
+  next: NOde { value: 16, next: NOde { value: 5, next: [NOde] } } } 'first'
+NOde { value: 44, next: null } 'second'
+null 'temp'
+NOde {
+  value: 44,
+  next: NOde { value: 99, next: NOde { value: 16, next: [NOde] } } } 'first'
+null 'second'
+[ 44, 99, 16, 5, 1 ]
+ashin@ashin-Lenovo-Legion-5-15IMH05:/media/ashin/ashin/project/dsa/LInkedList$ node SinglyLinkedList.js
+[ 1, 5, 16, 99, 44 ]
+NOde {
+  value: 1,
+  next: NOde { value: 5, next: NOde { value: 16, next: [NOde] } } } 'first' 'head'
+NOde {
+  value: 1,
+  next: NOde { value: 5, next: NOde { value: 16, next: [NOde] } } } 'second'
+NOde {
+  value: 16,
+  next: NOde { value: 99, next: NOde { value: 44, next: null } } } 'temp'
+NOde { value: 5, next: NOde { value: 1, next: [Circular] } } 'first'
+NOde {
+  value: 16,
+  next: NOde { value: 99, next: NOde { value: 44, next: null } } } 'second'
+NOde { value: 99, next: NOde { value: 44, next: null } } 'temp'
+NOde {
+  value: 16,
+  next: NOde { value: 5, next: NOde { value: 1, next: [Circular] } } } 'first'
+NOde { value: 99, next: NOde { value: 44, next: null } } 'second'
+NOde { value: 44, next: null } 'temp'
+NOde {
+  value: 99,
+  next: NOde { value: 16, next: NOde { value: 5, next: [NOde] } } } 'first'
+NOde { value: 44, next: null } 'second'
+null 'temp'
+NOde {
+  value: 44,
+  next: NOde { value: 99, next: NOde { value: 16, next: [NOde] } } } 'first'
+null 'second'
+[ 44, 99, 16, 5, 1 ]
